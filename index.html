@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Japan Luxury Rail Itineraries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #222;
+      justify-content: center;
+    }
+    .tab-button {
+      background: #444;
+      border: none;
+      color: white;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .tab-button.active {
+      background: #0078D7;
+    }
+    .itinerary-content {
+      display: none;
+      padding: 20px;
+    }
+    .itinerary-content.active {
+      display: block;
+    }
+    .day {
+      background: white;
+      margin: 10px 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .day-header {
+      background-color: #0078D7;
+      color: white;
+      padding: 12px 16px;
+      cursor: pointer;
+    }
+    .day-body {
+      display: none;
+      padding: 16px;
+    }
+    a {
+      color: #0078D7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    iframe, img {
+      width: 100%;
+      max-width: 500px;
+      margin: 10px 0;
+    }
+    h2 {
+      margin-top: 10px;
+    }
+    .contact-form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 30px 0;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact-form button {
+      background: #0078D7;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab-button active" onclick="showItinerary(event, 'a')">Kyushu Loop</button>
+  <button class="tab-button" onclick="showItinerary(event, 'b')">Fuji & Tōhoku</button>
+  <button class="tab-button" onclick="showItinerary(event, 'c')">Honshu Nightliner</button>
+  <button class="tab-button" onclick="showItinerary(event, 'd')">Izu Elegance</button>
+  <button class="tab-button" onclick="showItinerary(event, 'contact')">Contact</button>
+</div>
+
+<!-- BEGIN ITINERARY A -->
+<div id="a" class="itinerary-content active">
+  <h2>Kyushu Gourmet Loop (12 Days)</h2>
+
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">Day 1–2: Fukuoka</div>
+    <div class="day-body">
+      <strong>Stay:</strong> The Private Suites Fukuoka (Fora welcome cocktail)<br>
+      <strong>Activities:</strong><br>
+      - Context walking tour of Nakasu<br>
+      - EatWith Ichiran ramen workshop<br>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13244.135201957136!2d130.398588!3d33.590355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541919b6d54b71f%3A0xf8c3cfc4e4fa259f!2sNakasu%2C%20Fukuoka!5e0!3m2!1sen!2sjp!4v1683223322034!5m2!1sen!2sjp" height="250" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">Day 3: Yufuin</div>
+    <div class="day-body">
+      Aru Ressha dessert excursion<br>
+      Stay at Yufuin Suiran Ryokan (Virtuoso onsen ritual)
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">Day 4: Beppu</div>
+    <div class="day-body">
+      Viator-guided hot spring tour, seafood night market<br>
+      Stay: Suginoi Hotel (spa upgrade)
+    </div>
+  </div>
+
+  <!-- Add other days as needed -->
+</div>
+
+<!-- BEGIN ITINERARY B -->
+<div id="b" class="itinerary-content">
+  <h2>Fuji & Tōhoku Coastal Retreat (10 Days)</h2>
+
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">Day 1–2: Tokyo</div>
+    <div class="day-body">
+      Stay: Hoshinoya Tokyo (ryokan upgrade)<br>
+      Activities:<br>
+      - Context neon-lit street tour<br>
+      - EatWith sushi masterclass
+    </div>
+  </div>
+</div>
+
+<!-- BEGIN ITINERARY C -->
+<div id="c" class="itinerary-content">
+  <h2>Honshu Nightliner Expedition (9 Days)</h2>
+
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">Day 1: Tokyo → Okayama</div>
+    <div class="day-body">
+      Ride Sunrise Express<br>
+      Stay: Deluxe cabin<br>
+      Eat: Ekiben snack experience
+    </div>
+  </div>
+</div>
+
+<!-- BEGIN ITINERARY D -->
+<div id="d" class="itinerary-content">
+  <h2>Art-Deco & Izu Elegance (14 Days)</h2>
+
+  <div class="day">
+    <div class="day-header" onclick="toggleDay(this)">Day 1: Kyoto</div>
+    <div class="day-body">
+      Gion stroll, tea houses, and sake pairing at Ritz-Carlton
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<div id="contact" class="itinerary-content">
+  <h2>Contact Us</h2>
+  <form class="contact-form" name="contact" method="POST" data-netlify="true">
+    <label>Your Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Message</label>
+    <textarea name="message" rows="6" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+<script>
+  function showItinerary(event, id) {
+    document.querySelectorAll('.itinerary-content').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  function toggleDay(header) {
+    const body = header.nextElementSibling;
+    body.style.display = (body.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>
